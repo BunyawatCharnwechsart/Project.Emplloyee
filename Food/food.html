@@ -17,6 +17,7 @@
                 <div class="menu-item active">
                     <a href="/Food/food.html" class="button">รายการอาหาร</a>
                 </div>
+                
                 <div class="menu-item">
                     <a href="/Table/table.html" class="button">เปิดโต๊ะ</a>
                 </div>
@@ -36,11 +37,11 @@
 
             <div class="action-bar">
                 <div class="dropdown">
-                    <button class="dropdown-btn">อาหาร <span class="arrow-down">▼</span></button>
+                    <button class="dropdown-btn">เครื่องดื่ม <span class="arrow-down">▼</span></button>
                     <div class="dropdown-content">
                         <a href="/Food/food.html">เครื่องดื่ม</a>
-                        <a href="dessert.html">ของหวาน</a>
-                        <a href="arhan.html">อาหาร</a>
+                        <a href="/Food/dessert.html">ของหวาน</a>
+                        <a href="/Food/arhan.html">อาหาร</a>
                     </div>
                 </div>
                 <button class="add-menu-btn" onclick="openAddMenuForm()">
@@ -50,49 +51,56 @@
             </div>
 
             <div class="menu-grid">
-                <!-- ตัวอย่างเมนู -->
-                <div class="menu-item" onclick="openEditMenuForm('ผัดกะเพรา', '/img/phatkaphrao.png', 50)">
-                    <img src="/img/phatkaphrao.png" alt="ผัดกะเพรา">
-                    <div class="item-name">ผัดกะเพรา</div>
-                </div>
+                <div class="menu-grid">
+                    <!-- ตัวอย่างเมนู -->
+                    <div class="menu-item" onclick="openEditMenuForm('อเมริกาโน่', '/img/Ame yen.png', 40)">
+                        <img src="/img/Ame yen.png" alt="อเมริกาโน่">
+                        <div class="item-name">อเมริกาโน่</div>
+                    </div>
+    
+                    <div class="menu-item" onclick="openEditMenuForm('โกโก้', '/img/cocoa.png', 40)">
+                        <img src="/img/cocoa.png" alt="โกโก้">
+                        <div class="item-name">โกโก้</div>
+                    </div>
 
-                <div class="menu-item" onclick="openEditMenuForm('ข้าวไข่เจียวหมูสับ', '/img/omelette.png', 60)">
-                    <img src="/img/omelette.png" alt="ข้าวไข่เจียวหมูสับ">
-                    <div class="item-name">ข้าวไข่เจียวหมูสับ</div>
-                </div>
+                    <div class="menu-item" onclick="openEditMenuForm('ชาไทย', '/img/thaitea.png', 40)">
+                        <img src="/img/thaitea.png" alt="ชาไทย">
+                        <div class="item-name">ชาไทย</div>
+                    </div>
 
-                <div class="menu-item" onclick="openEditMenuForm('ข้าวกะเพราเครื่องในไก่', '/img/chickenentrails.png', 60)">
-                    <img src="/img/chickenentrails.png" alt="ข้าวกะเพราเครื่องในไก่">
-                    <div class="item-name">ข้าวกะเพราเครื่องในไก่</div>
-                </div>
+                    <div class="menu-item" onclick="openEditMenuForm('ชาเขียว', '/img/green tea.png', 40)">
+                        <img src="/img/green tea.png" alt="ชาเขียว">
+                        <div class="item-name">ชาเขียว</div>
+                    </div>
 
-                <div class="menu-item" onclick="openEditMenuForm('ผัดกะเพราทะเล', '/img/phatkaphraosea.png', 60)">
-                    <img src="/img/phatkaphraosea.png" alt="ผัดกะเพราทะเล">
-                    <div class="item-name">ผัดกะเพราทะเล</div>
-                </div>
+                    <div class="menu-item" onclick="openEditMenuForm('ฮันนี่เลมอนโซดา', '/img/hnlm soda.png', 40)">
+                        <img src="/img/hnlm soda.png" alt="ฮันนี่เลมอนโซดา">
+                        <div class="item-name">ฮันนี่เลมอนโซดา</div>
+                    </div>
 
-                <div class="menu-item" onclick="openEditMenuForm('ผัดกะเพราหมึก', '/img/phatkaphraosquid.png', 60)">
-                    <img src="/img/phatkaphraosquid.png" alt="ผัดกะเพราหมึก">
-                    <div class="item-name">ผัดกะเพราหมึก</div>
-                </div>
+                    <div class="menu-item" onclick="openEditMenuForm('บลูฮาวายโซดา', '/img/bht soda.png', 40)">
+                        <img src="/img/bht soda.png" alt="บลูฮาวายโซดา">
+                        <div class="item-name">บลูฮาวายโซดา</div>
+                    </div>
 
-                <div class="menu-item" onclick="openEditMenuForm('ข้าวไข่เจียวกุ้ง', '/img/Shrimpomelette.png', 60)">
-                    <img src="/img/Shrimpomelette.png" alt="ข้าวไข่เจียวกุ้ง">
-                    <div class="item-name">ข้าวไข่เจียวกุ้ง</div>
-                </div>
+                    <div class="menu-item" onclick="openEditMenuForm('ลาเต้', '/img/latte.png', 40)">
+                        <img src="/img/latte.png" alt="ลาเต้">
+                        <div class="item-name">ลาเต้</div>
+                    </div>
 
-                <div class="menu-item" onclick="openEditMenuForm('มาม่าต้มยำทะเล', '/img/mamatale.png', 60)">
-                    <img src="/img/mamatale.png" alt="มาม่าต้มยำทะเล">
-                    <div class="item-name">มาม่าต้มยำทะเล</div>
+                    <div class="menu-item" onclick="openEditMenuForm('ลาเสตอเบอร์รี่', '/img/stb flp.png', 40)">
+                        <img src="/img/stb flp.png" alt="สตอเบอร์รี่">
+                        <div class="item-name">สตอเบอร์รี่</div>
+                    </div>
+    
+                    <!-- เพิ่มเมนูอื่น ๆ -->
                 </div>
-
-                <!-- เพิ่มเมนูอื่น ๆ -->
             </div>
         </main>
     </div>
 
-     <!-- Modal Add Menu Form -->
-     <div id="add-menu-modal" class="modal">
+    <!-- Modal Add Menu Form -->
+    <div id="add-menu-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeAddMenuForm()">&times;</span>
             <h2>เพิ่มเมนูใหม่</h2>
