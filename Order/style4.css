@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #F1D5BB;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.menu-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar .menu-item {
+    color: #333;
+    font-size: 16px;
+}
+
+.sidebar .menu-item.active {
+    background-color: #c4b5a5;
+}
+
+.sidebar .menu-item.active a{
+    color: white;
+}
+
+.sidebar .menu-item:hover {
+    background-color: #e0d0c0;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9e7d7;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* card*/
+.orders {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+.order-card {
+    width: 48%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.order-header {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.order-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.status {
+    font-size: 14px;
+    color: black;
+}
+
+.order-info{
+    display: flex;
+    justify-content: center;
+    color: #666;
+    font-size: 14px;
+}
+.status-table {
+    display: flex;
+    justify-content: space-between; /* จัดให้ status อยู่ซ้าย, โต๊ะที่ อยู่ขวา */
+    align-items: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.order-details {
+    margin: 15px 0;
+}
+
+.order-details h3{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.item {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 16px;
+    color: #666;
+}
+.pending{
+    color: #FF0000;
+}
+
+.order-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.pending {
+    color: orange;
+    cursor: pointer;
+}
+
+.served {
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}

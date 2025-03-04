@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/img/LOGO.png" alt="Mor Milk Cafe">
+            </div>
+            <nav>
+                <div class="menu-item"><a href="/index.html">รายการอาหาร</a></div>
+                <div class="menu-item"><a href="/Table/table.html">เปิดโต๊ะ</a></div>
+                <div class="menu-item active"><a href="/Stock/stock.html">สินค้าคงคลัง</a></div>
+                <div class="menu-item"><a href="/Order/Order.html">ออร์เดอร์ที่เปิดอยู่</a></div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>สินค้าคงคลัง</h1>
+            </header>
+            <div class="search-container">
+                <div class="dropdown">
+                    <button class="dropdown-btn">ตัวกรอง<span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content">
+                        <a href="#">วัตถุดิบ</a>
+                        <a href="#">อุปกรณ์</a>
+                    </div>
+                </div>
+                <input type="text" placeholder="ค้นหาสินค้า..." class="search-input">
+            </div>
+            <div class="stock-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NO.</th>
+                            <th>ชื่อ</th>
+                            <th>Unit</th>
+                            <th>ราคา</th>
+                            <th>คงเหลือ</th>
+                            <th><button class="btn-add" onclick="openModal()">เพิ่มรายการ</button></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>น้ำตาล</td>
+                            <td>Kg.</td>
+                            <td>650</td>
+                            <td>25</td>
+                            <td>
+                                <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+                                <button class="delete-btn" onclick="deleteItem(this)">ลบ</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>ผงโกโก้</td>
+                            <td>g.</td>
+                            <td>189</td>
+                            <td>440</td>
+                            <td>
+                                <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+                                <button class="delete-btn" onclick="deleteItem(this)">ลบ</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>ผงเผือก</td>
+                            <td>g.</td>
+                            <td>101</td>
+                            <td>500</td>
+                            <td>
+                                <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+                                <button class="delete-btn" onclick="deleteItem(this)">ลบ</button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Adding Item -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>เพิ่มรายการสินค้า</h2>
+            <form id="addItemForm">
+                <label for="itemNo">หมายเลขสินค้า:</label>
+                <input type="text" id="itemNo" name="itemNo" required>
+                <label for="itemName">ชื่อสินค้า:</label>
+                <input type="text" id="itemName" name="itemName" required>
+                <label for="itemUnit">หน่วยสินค้า:</label>
+                <input type="text" id="itemUnit" name="itemUnit" required>
+                <label for="itemPrice">ราคา:</label>
+                <input type="number" id="itemPrice" name="itemPrice" required>
+                <label for="itemStock">คงเหลือ:</label>
+                <input type="number" id="itemStock" name="itemStock" required>
+                <button type="button" onclick="addItem()">เพิ่มรายการ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Editing Item -->
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditModal()">&times;</span>
+            <h2>แก้ไขรายการสินค้า</h2>
+            <form id="editItemForm">
+                <label for="editItemNo">หมายเลขสินค้า:</label>
+                <input type="text" id="editItemNo" name="editItemNo" disabled>
+                <label for="editItemName">ชื่อสินค้า:</label>
+                <input type="text" id="editItemName" name="editItemName" required>
+                <label for="editItemUnit">หน่วยสินค้า:</label>
+                <input type="text" id="editItemUnit" name="editItemUnit" required>
+                <label for="editItemPrice">ราคา:</label>
+                <input type="number" id="editItemPrice" name="editItemPrice" required>
+                <label for="editItemStock">คงเหลือ:</label>
+                <input type="number" id="editItemStock" name="editItemStock" required>
+                <button type="button" onclick="saveEditedItem()">บันทึกการแก้ไข</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentRow;
+
+        // ฟังก์ชันเปิด modal สำหรับเพิ่มรายการ
+        function openModal() {
+            document.getElementById("addItemModal").style.display = "block";
+        }
+
+        // ฟังก์ชันปิด modal
+        function closeModal() {
+            document.getElementById("addItemModal").style.display = "none";
+        }
+
+        // ฟังก์ชันเพิ่มรายการใหม่ลงในตาราง
+        function addItem() {
+            let no = document.getElementById("itemNo").value;
+            let name = document.getElementById("itemName").value;
+            let unit = document.getElementById("itemUnit").value;
+            let price = document.getElementById("itemPrice").value;
+            let stock = document.getElementById("itemStock").value;
+
+            if (no && name && unit && price && stock) {
+                closeModal();
+
+                let table = document.querySelector(".stock-table tbody");
+                let newRow = table.insertRow();
+                newRow.innerHTML = `
+                    <td>${no}</td>
+                    <td>${name}</td>
+                    <td>${unit}</td>
+                    <td>${price}</td>
+                    <td>${stock}</td>
+                    <td>
+                        <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+                        <button class="delete-btn" onclick="deleteItem(this)">ลบ</button>
+                    </td>
+                `;
+            } else {
+                alert("กรุณากรอกข้อมูลให้ครบถ้วน!");
+            }
+        }
+
+        // ฟังก์ชันเปิด modal สำหรับแก้ไข
+        function openEditModal(button) {
+            currentRow = button.closest("tr");
+            let no = currentRow.cells[0].innerText;
+            let name = currentRow.cells[1].innerText;
+            let unit = currentRow.cells[2].innerText;
+            let price = currentRow.cells[3].innerText;
+            let stock = currentRow.cells[4].innerText;
+
+            document.getElementById("editItemNo").value = no;
+            document.getElementById("editItemName").value = name;
+            document.getElementById("editItemUnit").value = unit;
+            document.getElementById("editItemPrice").value = price;
+            document.getElementById("editItemStock").value = stock;
+
+            document.getElementById("editItemModal").style.display = "block";
+        }
+
+        // ฟังก์ชันปิด modal สำหรับการแก้ไข
+        function closeEditModal() {
+            document.getElementById("editItemModal").style.display = "none";
+        }
+
+        // ฟังก์ชันบันทึกการแก้ไข
+        function saveEditedItem() {
+            let newName = document.getElementById("editItemName").value;
+            let newUnit = document.getElementById("editItemUnit").value;
+            let newPrice = document.getElementById("editItemPrice").value;
+            let newStock = document.getElementById("editItemStock").value;
+
+            if (newName && newUnit && newPrice && newStock) {
+                currentRow.cells[1].innerText = newName;
+                currentRow.cells[2].innerText = newUnit;
+                currentRow.cells[3].innerText = newPrice;
+                currentRow.cells[4].innerText = newStock;
+                closeEditModal();
+            } else {
+                alert("กรุณากรอกข้อมูลให้ครบถ้วน!");
+            }
+        }
+
+        // ฟังก์ชันสำหรับลบข้อมูล
+        function deleteItem(button) {
+            let row = button.closest("tr");
+            row.remove();
+        }
+    </script>
+</body>
+</html>

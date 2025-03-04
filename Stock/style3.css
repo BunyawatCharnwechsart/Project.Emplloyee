@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    padding: 10px 20px;
+    background-color: #ECEDED;
+    border-radius: 15px;
+    cursor: pointer;
+    min-width: 150px;
+    text-align: center;
+    transition: background-color 0.3s;
+    color: black;
+    border: 1px solid #ddd;
+}
+
+.dropdown-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #ECEDED;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #F1D5BB;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.menu-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar .menu-item {
+    color: #333;
+    font-size: 16px;
+}
+
+.sidebar .menu-item.active {
+    background-color: #c4b5a5;
+}
+
+.sidebar .menu-item.active a{
+    color: white;
+}
+
+.sidebar .menu-item:hover {
+    background-color: #e0d0c0;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9e7d7;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.bottom-controls {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0;
+    justify-content: flex-end; /* จัดให้อยู่ชิดขวา */
+}
+
+.search-input {
+    width: 300px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ECEDED;
+
+}
+
+/* Table Styles */
+.stock-table {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.edit-btn, .delete-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+/* ปุ่ม*/
+.edit-btn {
+    background-color: #F97A54;
+    color: #FFFFFF;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #d56949;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-add {
+    border-radius: 5px;
+    background-color: #FF2311;
+    padding: 10px 20px;
+    color: #ddd;
+    border: none;
+    font-weight: bold ;
+    cursor: pointer;
+}
+.btn-add:hover {
+    background-color: #FF2311;
+    color: white;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Stay on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 500px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styling the form inputs */
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}

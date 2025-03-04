@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/img/LOGO.png" alt="Mor Milk Cafe">
+            </div>
+            <nav>
+                <div class="menu-item"><a href="/index.html">รายการอาหาร</a></div>
+                <div class="menu-item"><a href="/Table/table.html">เปิดโต๊ะ</a></div>
+                <div class="menu-item"><a href="/Stock/stock.html">สินค้าคงคลัง</a></div>
+                <div class="menu-item active"><a href="/Order/Order.html">ออร์เดอร์ที่เปิดอยู่</a></div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>ออร์เดอร์ที่เปิดอยู่</h1>
+            </header>
+            <div class="orders">
+                <div class="order-card">
+                    <div class="order-header">
+                        <h2>Order 1</h2>
+                        <span class="order-info">1 มกราคม 68 / 11:03:12 น.</span><br>
+                        <div class="status-table">
+                            <p class="status">Status: <span class="pending" onclick="toggleStatus(this)">กำลังทำ</span></p>
+                            <p class="table-number">โต๊ะที่ : A1</p>
+                        </div>
+                    </div>
+                    <div class="order-details">
+                        <h3>รายการ</h3>
+                        <p class="item">Thai tea (1)</p>
+                        <p class="price">40 THB</p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="order-footer">
+                        <p class="total">ราคารวม 40 THB</p>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <div class="order-header">
+                        <h2>Order 2</h2>
+                        <span class="order-info">1 มกราคม 68 / 11:03:02 น.</span><br>
+                        <div class="status-table">
+                            <p class="status">Status: <span class="pending" onclick="toggleStatus(this)">กำลังทำ</span></p>
+                            <p class="table-number">โต๊ะที่ : A1</p>
+                        </div>
+                    </div>
+                    <div class="order-details">
+                        <h3>รายการ</h3>
+                        <p class="item">Thai tea (1)</p>
+                        <p class="price">40 THB</p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="order-footer">
+                        <p class="total">ราคารวม 40 THB</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleStatus(element) {
+            if (element.innerText === "กำลังทำ") {
+                element.innerText = "เสิร์ฟแล้ว";
+                element.classList.remove("pending");
+                element.classList.add("served");
+            } else {
+                element.innerText = "กำลังทำ";
+                element.classList.remove("served");
+                element.classList.add("pending");
+            }
+        }
+    </script>
+    
+</body>
+</html>

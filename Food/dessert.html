@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mor Milk</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/img/LOGO.png" alt="Mor Milk Cafe">
+            </div>
+            <nav>
+                <div class="menu-item active">
+                    <a href="/Food/food.html" class="button">รายการอาหาร</a>
+                </div>
+                
+                <div class="menu-item">
+                    <a href="/Table/table.html" class="button">เปิดโต๊ะ</a>
+                </div>
+                <div class="menu-item">
+                    <a href="/Stock/stock.html" class="button">สินค้าคงคลัง</a>
+                </div>
+                <div class="menu-item">
+                    <a href="/Order/Order.html" class="button">ออร์เดอร์ที่เปิดอยู่</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>รายการอาหาร</h1>
+            </header>
+
+            <div class="action-bar">
+                <div class="dropdown">
+                    <button class="dropdown-btn">ของหวาน <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content">
+                        <a href="food.html">เครื่องดื่ม</a>
+                        <a href="dessert.html">ของหวาน</a>
+                        <a href="arhan.html">อาหาร</a>
+                    </div>
+                </div>
+                <button class="add-menu-btn" onclick="openAddMenuForm()">
+                    <span class="plus-icon">+</span>
+                    Add Menu
+                </button>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-grid">
+                    <!-- ตัวอย่างเมนู -->
+                    <div class="menu-item" onclick="openEditMenuForm('บานาน่าโทสต์', '/img/bananatoast.png', 139)">
+                        <img src="/img/bananatoast.png" alt="บานาน่าโทสต์">
+                        <div class="item-name">บานาน่าโทสต์</div>
+                    </div>
+    
+                    <div class="menu-item" onclick="openEditMenuForm('ช็อกโกแลตโทสต์', '/img/chacotoast.png', 139)">
+                        <img src="/img/chacotoast.png" alt="ช็อกโกแลตโทสต์">
+                        <div class="item-name">ช็อกโกแลตโทสต์</div>
+                    </div>
+
+                    <div class="menu-item" onclick="openEditMenuForm('ขนมปังอบเนยนมน้ำตาล', '/img/bms.png', 10)">
+                        <img src="/img/bms.png" alt="ขนมปังอบเนยนมน้ำตาล">
+                        <div class="item-name">ขนมปังอบเนยนมน้ำตาล</div>
+                    </div>
+
+                    <div class="menu-item" onclick="openEditMenuForm('ปังปิ้งเนยนมน้ำตาล', '/img/fbms.png', 10)">
+                        <img src="/img/fbms.png" alt="ปังปิ้งเนยนมน้ำตาล">
+                        <div class="item-name">ปังปิ้งเนยนมน้ำตาล</div>
+                    </div>
+
+                    <div class="menu-item" onclick="openEditMenuForm('ปังปิ้งโอริโอ้', '/img/oreo.png', 10)">
+                        <img src="/img/oreo.png" alt="ปังปิ้งโอริโอ้">
+                        <div class="item-name">ปังปิ้งโอริโอ้</div>
+                    </div>
+
+                    <div class="menu-item" onclick="openEditMenuForm('ปลาไทยากิ', '/img/taiyaki.png', 10)">
+                        <img src="/img/taiyaki.png" alt="ปลาไทยากิ">
+                        <div class="item-name">ปลาไทยากิ</div>
+                    </div>
+
+                    <div class="menu-item" onclick="openEditMenuForm('', '/img/vanila.png', 139)">
+                        <img src="/img/vanila.png" alt="วานิลาฮันนี่โทสต์">
+                        <div class="item-name">วานิลาฮันนี่โทสต์</div>
+                    </div>
+    
+                    <!-- เพิ่มเมนูอื่น ๆ -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+     <!-- Modal Add Menu Form -->
+     <div id="add-menu-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAddMenuForm()">&times;</span>
+            <h2>เพิ่มเมนูใหม่</h2>
+            <form id="add-menu-form">
+                <div class="form-group">
+                    <label for="item-name">ชื่อเมนู:</label>
+                    <input type="text" id="item-name" name="item-name" required placeholder="กรุณากรอกชื่อเมนู">
+                </div>
+
+                <div class="form-group">
+                    <label for="item-image">เลือกภาพเมนู:</label>
+                    <input type="file" id="item-image" name="item-image" accept="image/*" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">เพิ่มเมนู</button>
+                    <button type="button" class="cancel-btn" onclick="closeAddMenuForm()">ยกเลิก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     <!-- Modal Edit Menu Form -->
+     <div id="edit-menu-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditMenuForm()">&times;</span>
+            <h2>แก้ไขเมนู</h2>
+            <form id="edit-menu-form">
+                <div class="form-group">
+                    <label for="edit-item-name">ชื่อเมนู:</label>
+                    <input type="text" id="edit-item-name" name="item-name" required placeholder="กรุณากรอกชื่อเมนู">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-item-image">เลือกภาพเมนู:</label>
+                    <input type="file" id="edit-item-image" name="item-image" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-item-price">ราคา:</label>
+                    <input type="number" id="edit-item-price" name="item-price" required placeholder="กรุณากรอกราคา">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">บันทึกการเปลี่ยนแปลง</button>
+                    <button type="button" class="cancel-btn" onclick="closeEditMenuForm()">ยกเลิก</button>
+                    <button type="button" class="delete-btn" onclick="deleteMenu()">ลบเมนู</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
